@@ -1,13 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
-:root {
-  --paper: #f5f3ee;
-  --ink: #25251f;
-  --orange: #e7562d;
-  --muted: #706f67;
-  --shell: #b4aa95;
-  --shell-light: #d5cdbd;
-  --shell-dark: #807762;
-}
 * {
   box-sizing: border-box;
 }
@@ -19,7 +9,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
 }
 button,
 a {
@@ -45,12 +35,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #d9d6cd;
+  border-bottom: 1px solid var(--line);
 }
 .logo {
-  font:
-    800 43px "Manrope",
-    sans-serif;
+  font: 800 43px var(--font-display);
   letter-spacing: -4px;
 }
 .logo span {
@@ -76,7 +64,7 @@ nav a:hover {
 .bag span {
   display: inline-grid;
   place-items: center;
-  border: 1px solid #aaa99e;
+  border: 1px solid var(--tone-46);
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -112,14 +100,12 @@ p {
   margin-top: 0;
 }
 h1 {
-  font:
-    500 clamp(64px, 6.5vw, 106px)/1.02 "Manrope",
-    sans-serif;
+  font: 500 clamp(64px, 6.5vw, 106px)/1.02 var(--font-display);
   letter-spacing: -6px;
   margin: 38px 0 25px;
 }
 em {
-  font-family: Georgia, serif;
+  font-family: var(--font-editorial);
   font-weight: 400;
   color: var(--orange);
 }
@@ -146,14 +132,14 @@ em {
 }
 .button:hover {
   transform: translateY(-3px);
-  background: #fff;
+  background: var(--tone-94);
 }
 .button.orange {
   color: white;
   background: var(--orange);
 }
 .button.orange:hover {
-  background: #bf3c18;
+  background: var(--accent-hover);
 }
 .button span {
   font-size: 20px;
@@ -177,7 +163,11 @@ em {
 }
 .stage {
   position: relative;
-  background: radial-gradient(ellipse at 45% 30%, #e7e1d4, #d9d1c0);
+  background: radial-gradient(
+    ellipse at 45% 30%,
+    var(--tone-78),
+    var(--tone-69)
+  );
   overflow: hidden;
   min-height: 660px;
   perspective: 1100px;
@@ -202,17 +192,15 @@ em {
 }
 .big-word {
   position: absolute;
-  font:
-    800 260px "Manrope",
-    sans-serif;
+  font: 800 260px var(--font-display);
   letter-spacing: -25px;
-  color: #f3eee448;
+  color: var(--tone-88);
   top: 110px;
   left: 4%;
 }
 .orbit {
   position: absolute;
-  border: 1px solid #b7ab9555;
+  border: 1px solid var(--tone-51);
   border-radius: 50%;
   width: 580px;
   height: 220px;
@@ -243,7 +231,7 @@ em {
   left: -30px;
   width: 325px;
   height: 40px;
-  background: #4d443d55;
+  background: var(--tone-24);
   filter: blur(20px);
   border-radius: 50%;
   transform: rotate(-10deg);
@@ -261,8 +249,8 @@ em {
   inset: 0;
   border-radius: 27px 27px 40px 40px;
   background:
-    repeating-linear-gradient(0deg, #302b2428 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, #fff3 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, var(--tone-14) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, var(--tone-97) 0 1px, transparent 1px 3px),
     linear-gradient(
       110deg,
       var(--shell-light),
@@ -270,8 +258,8 @@ em {
       var(--shell-dark)
     );
   box-shadow:
-    inset 10px 0 18px #fff3,
-    inset -15px 0 20px #0002;
+    inset 10px 0 18px var(--tone-97),
+    inset -15px 0 20px var(--tone-1);
   transform: translateZ(50px);
 }
 .speaker-top {
@@ -287,9 +275,9 @@ em {
   align-items: center;
   justify-content: center;
   gap: 37px;
-  color: #625b50;
+  color: var(--tone-32);
   font-size: 18px;
-  box-shadow: inset 0 0 0 2px #fff2;
+  box-shadow: inset 0 0 0 2px var(--tone-96);
 }
 .speaker-side {
   position: absolute;
@@ -307,18 +295,18 @@ em {
   left: 0;
   right: 0;
   text-align: center;
-  color: #efeadf;
-  font: bold 22px "Manrope";
+  color: var(--tone-87);
+  font: bold 22px var(--font-display);
   letter-spacing: -1.4px;
-  text-shadow: 0 1px 2px #0005;
+  text-shadow: 0 1px 2px var(--tone-3);
 }
 .led {
   position: absolute;
   width: 21px;
   height: 2px;
   border-radius: 10px;
-  background: #f5e1b5;
-  box-shadow: 0 0 5px #fff9;
+  background: var(--tone-90);
+  box-shadow: 0 0 5px var(--tone-101);
   bottom: 26px;
   left: calc(50% - 10px);
 }
@@ -328,7 +316,7 @@ em {
   left: 15px;
   width: 220px;
   height: 15px;
-  background: #5c5549;
+  background: var(--tone-31);
   border-radius: 50%;
   transform: translateZ(15px);
 }
@@ -351,18 +339,18 @@ em {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #b9ae98;
-  border: 2px solid #e9e2d6;
+  background: var(--tone-54);
+  border: 2px solid var(--tone-80);
   box-shadow: 0 0 0 1px transparent;
 }
 .swatch.selected {
-  box-shadow: 0 0 0 1px #48463d;
+  box-shadow: 0 0 0 1px var(--tone-23);
 }
 .swatch.charcoal {
-  background: #454642;
+  background: var(--tone-22);
 }
 .swatch.clay {
-  background: #ad644b;
+  background: var(--tone-48);
 }
 .swatches > span {
   font-size: 10px;
@@ -373,7 +361,7 @@ em {
   border: 0;
   background: none;
   font-size: 10px;
-  color: #4e4a40;
+  color: var(--tone-25);
 }
 .ticker {
   padding: 24px 5%;
@@ -381,7 +369,7 @@ em {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  border-bottom: 1px solid #d9d6cd;
+  border-bottom: 1px solid var(--line);
   font-size: 10px;
   letter-spacing: 1.3px;
   overflow: hidden;
@@ -403,7 +391,7 @@ em {
   gap: 30px;
 }
 h2 {
-  font: 500 clamp(32px, 3.4vw, 52px)/1.16 "Manrope";
+  font: 500 clamp(32px, 3.4vw, 52px)/1.16 var(--font-display);
   letter-spacing: -2px;
   margin-bottom: 0;
 }
@@ -430,13 +418,13 @@ h2 {
   overflow: hidden;
 }
 .sand-art {
-  background: #e8e4db;
+  background: var(--tone-79);
 }
 .dark-art {
-  background: #dedfd9;
+  background: var(--tone-73);
 }
 .clay-art {
-  background: #eaddd5;
+  background: var(--tone-82);
 }
 .tag {
   position: absolute;
@@ -449,7 +437,7 @@ h2 {
   position: absolute;
   bottom: 18px;
   right: 18px;
-  border: 1px solid #0002;
+  border: 1px solid var(--tone-1);
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -466,12 +454,12 @@ h2 {
   height: 170px;
   border-radius: 24px 24px 28px 28px;
   background:
-    repeating-linear-gradient(0deg, #3d332833 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, #fff3 0 1px, transparent 1px 3px),
-    linear-gradient(110deg, #d2c9b6, #aaa08a);
+    repeating-linear-gradient(0deg, var(--tone-18) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, var(--tone-97) 0 1px, transparent 1px 3px),
+    linear-gradient(110deg, var(--tone-65), var(--tone-45));
   box-shadow:
-    inset -10px 0 15px #0002,
-    12px 25px 18px -14px #332c3d44;
+    inset -10px 0 15px var(--tone-1),
+    12px 25px 18px -14px var(--tone-16);
   transform: rotate(-9deg);
   transition: transform 0.5s;
 }
@@ -483,8 +471,8 @@ h2 {
   right: 1px;
   height: 23px;
   border-radius: 50%;
-  background: linear-gradient(140deg, #d8cfbb, #b9ae98);
-  box-shadow: 0 2px 2px #0002;
+  background: linear-gradient(140deg, var(--tone-68), var(--tone-54));
+  box-shadow: 0 2px 2px var(--tone-1);
 }
 .mini-speaker span {
   position: absolute;
@@ -492,7 +480,7 @@ h2 {
   text-align: center;
   width: 100%;
   font-weight: bold;
-  color: #f5efe4;
+  color: var(--tone-91);
   font-size: 13px;
   letter-spacing: -1px;
 }
@@ -503,13 +491,13 @@ h2 {
   height: 135px;
   width: 110px;
   background:
-    repeating-linear-gradient(0deg, #0005 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, #fff1 0 1px, transparent 1px 3px),
-    linear-gradient(110deg, #63665e, #333732);
+    repeating-linear-gradient(0deg, var(--tone-3) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, var(--tone-95) 0 1px, transparent 1px 3px),
+    linear-gradient(110deg, var(--tone-34), var(--tone-17));
   transform: rotate(8deg);
 }
 .portable:before {
-  background: #4f534c;
+  background: var(--tone-26);
 }
 .portable:after {
   content: "";
@@ -518,7 +506,7 @@ h2 {
   top: 12px;
   width: 25px;
   height: 53px;
-  border: 5px solid #62665d;
+  border: 5px solid var(--tone-33);
   border-left: 0;
   border-radius: 0 18px 18px 0;
   z-index: -1;
@@ -527,13 +515,13 @@ h2 {
   width: 205px;
   height: 150px;
   background:
-    repeating-linear-gradient(0deg, #50241555 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, #fff2 0 1px, transparent 1px 3px),
-    linear-gradient(110deg, #bd8467, #995a45);
+    repeating-linear-gradient(0deg, var(--tone-27) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, var(--tone-96) 0 1px, transparent 1px 3px),
+    linear-gradient(110deg, var(--tone-57), var(--tone-42));
   transform: rotate(-6deg);
 }
 .wide:before {
-  background: #b67a5c;
+  background: var(--tone-50);
 }
 .product-info {
   display: flex;
@@ -555,8 +543,8 @@ h2 {
 .philosophy {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: #242822;
-  color: #eeeee4;
+  background: var(--tone-7);
+  color: var(--tone-86);
   min-height: 520px;
 }
 .philosophy-copy {
@@ -566,17 +554,17 @@ h2 {
   margin: 25px 0;
 }
 .philosophy-copy em {
-  color: #d2bfa3;
+  color: var(--tone-64);
 }
 .philosophy-copy > p:not(.eyebrow) {
   font-size: 13px;
   line-height: 1.9;
-  color: #b8bcb1;
+  color: var(--tone-52);
 }
 .text-link {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #707567;
+  border-bottom: 1px solid var(--tone-37);
   padding: 20px 0 12px;
   font-size: 12px;
 }
@@ -584,17 +572,22 @@ h2 {
   position: relative;
   overflow: hidden;
   min-height: 470px;
-  background: radial-gradient(circle, #8b8b6b 0, #535944 24%, #252b22 64%);
+  background: radial-gradient(
+    circle,
+    var(--tone-41) 0,
+    var(--tone-29) 24%,
+    var(--tone-11) 64%
+  );
 }
 .sound-ring {
   position: absolute;
   left: 50%;
   top: 48%;
   border-radius: 50%;
-  border: 1px solid #bac0a84d;
+  border: 1px solid var(--tone-56);
   box-shadow:
-    inset 3px 5px 12px #c3caaa10,
-    3px 6px 18px #0005;
+    inset 3px 5px 12px var(--tone-59),
+    3px 6px 18px var(--tone-3);
   transform: translate(-50%, -50%) rotateX(20deg);
 }
 .r1 {
@@ -623,9 +616,9 @@ h2 {
   place-items: center;
   width: 85px;
   height: 85px;
-  background: linear-gradient(130deg, #9ca18a, #434d3c);
-  box-shadow: 7px 15px 25px #0006;
-  font: bold 40px "Manrope";
+  background: linear-gradient(130deg, var(--tone-43), var(--tone-20));
+  box-shadow: 7px 15px 25px var(--tone-4);
+  font: bold 40px var(--font-display);
   letter-spacing: -4px;
 }
 .sound-art > span {
@@ -635,7 +628,7 @@ h2 {
   text-align: center;
   font-size: 9px;
   letter-spacing: 2px;
-  color: #c5c9bc;
+  color: var(--tone-60);
 }
 .feature-grid {
   display: grid;
@@ -659,7 +652,7 @@ h2 {
   max-width: 300px;
 }
 details {
-  border-block: 1px solid #cfcec4;
+  border-block: 1px solid var(--tone-63);
   padding: 24px 0;
 }
 summary {
@@ -681,7 +674,7 @@ table {
 th,
 td {
   padding: 20px 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--tone-71);
 }
 caption {
   text-align: left;
@@ -694,7 +687,7 @@ details[open] summary span {
 .closing {
   background: var(--orange);
   text-align: center;
-  color: #fff;
+  color: var(--tone-94);
   padding: 70px 20px;
 }
 .closing .eyebrow {
@@ -740,7 +733,7 @@ dialog {
   color: var(--ink);
 }
 dialog::backdrop {
-  background: #1b2018aa;
+  background: var(--tone-5);
   backdrop-filter: blur(7px);
 }
 dialog h2 {
@@ -760,7 +753,7 @@ dialog > p {
 }
 .dialog-visual {
   height: 230px;
-  background: #e8e4db;
+  background: var(--tone-79);
   display: grid;
   place-items: center;
   margin: 20px 0;
@@ -784,13 +777,13 @@ dialog .button {
   justify-content: space-between;
   gap: 15px;
   padding: 20px 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--tone-62);
   font-size: 13px;
 }
 .selection-item button {
   border: 0;
   background: none;
-  color: #ad391a;
+  color: var(--tone-47);
   font-size: 11px;
 }
 #continue {
@@ -802,7 +795,7 @@ dialog .button {
   left: 50%;
   transform: translate(-50%, 30px);
   opacity: 0;
-  background: #252b22;
+  background: var(--tone-11);
   color: white;
   padding: 16px 25px;
   font-size: 13px;
@@ -997,7 +990,7 @@ dialog .button {
     margin: 35px 0;
   }
   .feature-grid article {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--tone-71);
     padding-bottom: 20px;
   }
   .feature-icon {
@@ -1028,7 +1021,7 @@ dialog .button {
   }
   footer > div {
     width: 100%;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--tone-71);
     padding-top: 22px;
   }
   .table-wrap {
@@ -1062,8 +1055,8 @@ dialog .button {
 }
 .dialog-visual .mini-speaker:not(.portable):not(.wide) {
   background:
-    repeating-linear-gradient(0deg, #302b2428 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, #fff3 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, var(--tone-14) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, var(--tone-97) 0 1px, transparent 1px 3px),
     linear-gradient(110deg, var(--shell-light), var(--shell), var(--shell-dark));
 }
 .dialog-visual .mini-speaker:not(.portable):not(.wide):before {
@@ -1074,55 +1067,55 @@ header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(245, 243, 238, 0.78);
+  background: var(--tone-107);
   backdrop-filter: blur(22px) saturate(140%);
   -webkit-backdrop-filter: blur(22px) saturate(140%);
-  box-shadow: 0 4px 25px #25251f05;
+  box-shadow: 0 4px 25px var(--tone-9);
   transition:
     box-shadow 0.3s,
     background 0.3s;
 }
 header.scrolled {
-  background: rgba(245, 243, 238, 0.91);
-  box-shadow: 0 8px 32px #25251f12;
+  background: var(--tone-108);
+  box-shadow: 0 8px 32px var(--tone-10);
 }
 .stage-bottom {
   padding: 13px 16px;
-  border: 1px solid #fff6;
+  border: 1px solid var(--tone-99);
   border-radius: 12px;
-  background: #ffffff38;
+  background: var(--tone-102);
   backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px #40351d0a;
+  box-shadow: 0 8px 32px var(--tone-19);
 }
 .annotation {
-  background: #ffffff45;
+  background: var(--tone-104);
   padding: 12px 15px;
-  border: 1px solid #ffffff60;
+  border: 1px solid var(--tone-106);
   border-radius: 30px;
   backdrop-filter: blur(12px);
 }
 .plus {
-  background: #ffffff40;
+  background: var(--tone-103);
   backdrop-filter: blur(12px);
-  border-color: #fff8;
+  border-color: var(--tone-100);
 }
 .product-art {
   border-radius: 14px;
-  border: 1px solid #fff8;
+  border: 1px solid var(--tone-100);
 }
 .feature-grid article {
   padding: 25px;
-  background: #ffffff48;
-  border: 1px solid #fff9;
+  background: var(--tone-105);
+  border: 1px solid var(--tone-101);
   border-radius: 16px;
-  box-shadow: 0 10px 35px #28281c04;
+  box-shadow: 0 10px 35px var(--tone-13);
   backdrop-filter: blur(10px);
 }
 dialog {
-  background: rgba(245, 243, 238, 0.95);
+  background: var(--tone-109);
   backdrop-filter: blur(28px);
-  border: 1px solid #fff8;
-  box-shadow: 0 30px 100px #0004;
+  border: 1px solid var(--tone-100);
+  box-shadow: 0 30px 100px var(--tone-2);
 }
 .cursor-halo {
   position: fixed;
@@ -1130,8 +1123,8 @@ dialog {
   left: 0;
   width: 30px;
   height: 30px;
-  border: 1px solid #e7562d80;
-  background: #e7562d0a;
+  border: 1px solid var(--tone-77);
+  background: var(--tone-75);
   border-radius: 50%;
   pointer-events: none;
   z-index: 100;
@@ -1146,14 +1139,14 @@ dialog {
 .cursor-halo.active {
   width: 55px;
   height: 55px;
-  background: #e7562d15;
+  background: var(--tone-76);
 }
 .cursor-spark {
   position: fixed;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ee9c68aa, transparent);
+  background: radial-gradient(circle, var(--tone-83), transparent);
   pointer-events: none;
   z-index: 99;
 }
@@ -1189,7 +1182,7 @@ dialog {
   }
 }
 .listening {
-  background: #eeebe3;
+  background: var(--tone-85);
 }
 .mood-layout {
   display: grid;
@@ -1202,8 +1195,8 @@ dialog {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  background: linear-gradient(130deg, #ded4bc, #b9b197);
-  box-shadow: inset 0 0 80px #503d2f12;
+  background: linear-gradient(130deg, var(--tone-72), var(--tone-55));
+  box-shadow: inset 0 0 80px var(--tone-28);
   transition: background 0.6s;
 }
 .scene-window {
@@ -1212,8 +1205,8 @@ dialog {
   top: 30px;
   width: 43%;
   height: 65%;
-  border: 14px solid #f4eedb80;
-  box-shadow: 20px 30px 45px #fff4;
+  border: 14px solid var(--tone-89);
+  box-shadow: 20px 30px 45px var(--tone-98);
   transform: skewY(-10deg);
 }
 .scene-window:after {
@@ -1222,7 +1215,7 @@ dialog {
   width: 10px;
   height: 100%;
   left: 50%;
-  background: #f4eedb80;
+  background: var(--tone-89);
 }
 .scene-sun {
   width: 220px;
@@ -1231,7 +1224,7 @@ dialog {
   position: absolute;
   right: -30px;
   top: -55px;
-  background: #f9e4ab99;
+  background: var(--tone-93);
   filter: blur(25px);
   transition: background 0.5s;
 }
@@ -1240,8 +1233,8 @@ dialog {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(#a27857, #78583e);
-  box-shadow: 0 -10px 40px #453e2920;
+  background: linear-gradient(var(--tone-44), var(--tone-39));
+  box-shadow: 0 -10px 40px var(--tone-21);
 }
 .scene-speaker {
   position: absolute;
@@ -1257,16 +1250,20 @@ dialog {
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  background: repeating-radial-gradient(circle, #30332d 0 2px, #23261f 3px 4px);
-  box-shadow: 9px 9px 20px #0004;
+  background: repeating-radial-gradient(
+    circle,
+    var(--tone-15) 0 2px,
+    var(--tone-6) 3px 4px
+  );
+  box-shadow: 9px 9px 20px var(--tone-2);
 }
 .scene-vinyl:after {
   content: "a.";
   position: absolute;
   inset: 43px;
   border-radius: 50%;
-  background: #d7734d;
-  color: #eee;
+  background: var(--tone-67);
+  color: var(--tone-84);
   text-align: center;
   line-height: 44px;
 }
@@ -1274,18 +1271,18 @@ dialog {
   position: absolute;
   bottom: 25px;
   left: 28px;
-  color: #fff;
+  color: var(--tone-94);
   font-size: 9px;
   letter-spacing: 2px;
 }
 .mood-scene[data-mood="focus"] {
-  background: linear-gradient(130deg, #b8c3be, #667d75);
+  background: linear-gradient(130deg, var(--tone-53), var(--tone-35));
 }
 .mood-scene[data-mood="evening"] {
-  background: linear-gradient(130deg, #56505d, #262532);
+  background: linear-gradient(130deg, var(--tone-30), var(--tone-12));
 }
 .mood-scene[data-mood="evening"] .scene-sun {
-  background: #ea784eaa;
+  background: var(--tone-81);
   top: 70px;
 }
 .mood-scene[data-mood="evening"] .scene-window {
@@ -1298,10 +1295,10 @@ dialog {
   padding: 22px 0;
   text-align: left;
   border: 0;
-  border-bottom: 1px solid #cbc8be;
+  border-bottom: 1px solid var(--tone-61);
   background: none;
   font-size: 16px;
-  color: #77776a;
+  color: var(--tone-38);
 }
 .mood-buttons button[aria-pressed="true"] {
   color: var(--orange);
@@ -1358,7 +1355,7 @@ dialog {
 }
 .craft-grid article {
   padding-top: 25px;
-  border-top: 1px solid #cbc8be;
+  border-top: 1px solid var(--tone-61);
 }
 .craft-grid article > span {
   font-size: 12px;

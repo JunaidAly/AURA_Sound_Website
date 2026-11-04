@@ -1,4 +1,8 @@
 "use client";
+import { Button } from "./ui/Button";
+import { Typography } from "./ui/Typography";
+import { Icon } from "./ui/Icon";
+
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 export default function ProductDialog({
@@ -51,14 +55,16 @@ export default function ProductDialog({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
       >
-        <button className="close" onClick={onClose} aria-label="Close dialog">
-          ×
-        </button>
+        <Button className="close" onClick={onClose} aria-label="Close dialog">
+          <Icon name="close" />
+        </Button>
         {kind === "product" ? (
           <>
-            <p className="eyebrow">YOUR EVERYDAY, ELEVATED</p>
-            <h2 id="dialogTitle">Aura {product}</h2>
-            <p>{data.desc}</p>
+            <Typography variant="eyebrow">YOUR EVERYDAY, ELEVATED</Typography>
+            <Typography as="h2" variant="heading" id="dialogTitle">
+              Aura {product}
+            </Typography>
+            <Typography>{data.desc}</Typography>
             <div className="dialog-visual">
               <div
                 className={
@@ -77,22 +83,27 @@ export default function ProductDialog({
               <span>{finish} finish</span>
               <strong>${data.price}</strong>
             </div>
-            <motion.button
+            <Button
               className="button orange"
               onClick={onAdd}
               whileTap={effects ? { scale: 0.97 } : undefined}
             >
-              Add to selection <span>+</span>
-            </motion.button>
-            <p className="demo-note">
+              Add to selection{" "}
+              <span>
+                <Icon name="plus" />
+              </span>
+            </Button>
+            <Typography className="demo-note">
               Portfolio concept. This saves a selection in this browser session;
               no payment or order is placed.
-            </p>
+            </Typography>
           </>
         ) : (
           <>
-            <p className="eyebrow">YOUR CURATED COLLECTION</p>
-            <h2 id="dialogTitle">Your selection.</h2>
+            <Typography variant="eyebrow">YOUR CURATED COLLECTION</Typography>
+            <Typography as="h2" variant="heading" id="dialogTitle">
+              Your selection.
+            </Typography>
             {selection.length ? (
               selection.map((item) => (
                 <div className="selection-item" key={item.id}>
@@ -100,25 +111,25 @@ export default function ProductDialog({
                     Aura {item.model} · {item.finish} finish · $
                     {products[item.model].price}
                   </span>
-                  <button
+                  <Button
                     onClick={() => onRemove(item.id)}
                     aria-label={"Remove Aura " + item.model}
                   >
                     Remove
-                  </button>
+                  </Button>
                 </div>
               ))
             ) : (
-              <p>
+              <Typography>
                 Your collection is waiting. Explore the speakers to add a
                 favourite.
-              </p>
+              </Typography>
             )}
-            <p className="demo-note">
+            <Typography className="demo-note">
               Demonstration only. Products, prices and specifications are
               fictional.
-            </p>
-            <button
+            </Typography>
+            <Button
               className="button orange"
               id="continue"
               onClick={() => {
@@ -128,8 +139,8 @@ export default function ProductDialog({
                   .scrollIntoView({ behavior: effects ? "smooth" : "instant" });
               }}
             >
-              Continue exploring ↗
-            </button>
+              Continue exploring <Icon name="arrow" />
+            </Button>
           </>
         )}
       </motion.div>
