@@ -6,10 +6,20 @@ function progress(){header.classList.toggle('scrolled',scrollY>15);const length=
 addEventListener('scroll',progress,{passive:true});addEventListener('resize',progress);progress();
 let animateMotion; const running=new Set();
 function run(target,keyframes,options){if(reduced.matches||document.body.classList.contains('paused'))return;if(animateMotion){const control=animateMotion(target,keyframes,options);running.add(control);Promise.resolve(control).finally(()=>running.delete(control));}}
-import('https://cdn.jsdelivr.net/npm/motion@12.23.24/+esm').then(({animate,inView})=>{animateMotion=animate;
-if(!reduced.matches){run('.hero-copy > *',{opacity:[0,1],y:[18,0]},{duration:.7,delay:.1});
-inView('.section-head, .product, .philosophy-copy, .feature-grid article, .closing',element=>{run(element,{opacity:[0,1],y:[28,0]},{duration:.7,ease:[.22,1,.36,1]});},{amount:.15});}
-}).catch(()=>{/* Static content stays visible. */});
+// Locally bundled Motion (Framer Motion's animation engine), no CDN dependency.
+if(window.Motion){
+const {animate,inView,stagger}=window.Motion; animateMotion=animate;
+run('.hero-copy > *',{opacity:[0,1],y:[38,0],filter:['blur(8px)','blur(0px)']},{duration:.9,delay:stagger(.12),ease:[.22,1,.36,1]});
+run('.speaker-wrap',{opacity:[0,1]},{duration:1.3,ease:[.22,1,.36,1]});
+inView('.section-head, .philosophy-copy, .closing, .craft-heading, .questions',el=>{run(el,{opacity:[0,1],y:[55,0]},{duration:.9,ease:[.22,1,.36,1]});},{amount:.15});
+inView('.products, .feature-grid, .craft-grid',el=>{run(Array.from(el.children),{opacity:[0,1],y:[55,0]},{duration:.85,delay:stagger(.14),ease:[.22,1,.36,1]});},{amount:.15});
+inView('.mood-layout',el=>{run(el,{opacity:[0,1],y:[60,0],scale:[.97,1]},{duration:1,ease:[.22,1,.36,1]});},{amount:.2});
+document.querySelectorAll('.button,.plus').forEach(el=>{el.addEventListener('pointerenter',()=>run(el,{scale:1.06},{type:'spring',stiffness:300,damping:18}));el.addEventListener('pointerleave',()=>{if(animateMotion)animateMotion(el,{scale:1},{duration:reduced.matches?0:.25});});});
+const dialogObserver=new MutationObserver(entries=>entries.forEach(({target})=>{if(target.open)run(target,{opacity:[0,1],y:[25,0],scale:[.94,1]},{duration:.35,ease:[.22,1,.36,1]});}));
+document.querySelectorAll('dialog').forEach(el=>dialogObserver.observe(el,{attributes:true,attributeFilter:['open']}));
+}
+const moods={morning:['THE MORNING RITUAL','First light. Fresh coffee. Your favourite record. A softer start to whatever comes next.'],focus:['A LITTLE ROOM TO THINK','Clear the desk. Find your flow. A thoughtful soundtrack for the things that deserve your attention.'],evening:['STAY A LITTLE LONGER','Lights down. One more record. Turn an ordinary evening into your favourite part of the day.']};
+document.querySelectorAll('.mood-buttons button').forEach(button=>button.addEventListener('click',()=>{const mood=button.dataset.mood;document.querySelector('.mood-scene').dataset.mood=mood;document.querySelector('.scene-label').textContent=moods[mood][0];document.querySelector('#moodCopy').textContent=moods[mood][1];document.querySelectorAll('.mood-buttons button').forEach(b=>b.setAttribute('aria-pressed',b===button));run('.scene-speaker',{y:[-18,0],rotate:[-7,0]},{duration:.7,type:'spring'});run('#moodCopy',{opacity:[0,1],y:[10,0]},{duration:.4});}));
 const fine=matchMedia('(hover: hover) and (pointer: fine)');
 const halo=document.createElement('div');halo.className='cursor-halo';halo.setAttribute('aria-hidden','true');document.body.append(halo);
 let x=0,y=0,cx=0,cy=0,frame=0,lastSpark=0;
