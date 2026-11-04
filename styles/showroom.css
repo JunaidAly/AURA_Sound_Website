@@ -1448,36 +1448,219 @@ dialog {
 }
 
 /* One continuous product, scrubbed by scroll rather than timed transitions. */
-.hero-journey { position: relative; height: 260vh; }
-.hero-sticky { position: sticky; top: 76px; height: calc(100svh - 76px); min-height: 560px; overflow: hidden; }
-.hero-story { position: relative; align-self: stretch; }
-.hero-sticky .hero-copy { padding: clamp(32px, 6vh, 70px) 5% 24px 10%; }
-.hero-sticky .stage { min-height: 0; height: 100%; }
-.hero-sticky .speaker-wrap { animation: none; }
-.hero-sticky .speaker { transition: none; will-change: transform; }
-.journey-copy { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 10%; pointer-events: none; }
-.journey-copy h2 { font-size: clamp(40px, 4.8vw, 76px); line-height: 1.04; letter-spacing: -.055em; margin: 30px 0; }
-.journey-copy em { font-family: var(--font-editorial); color: var(--accent); font-weight: 400; }
-.journey-copy p:not(.eyebrow) { max-width: 390px; }
-.journey-rule { width: 54px; height: 1px; background: var(--accent); margin: 32px 0; }
-.journey-progress { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--line); }
-.journey-progress > div { height: 100%; background: var(--accent); transform-origin: left; }
-.journey-static { height: auto; }
-.journey-static .hero-sticky { position: relative; top: auto; height: auto; }
-.journey-static .stage { min-height: 660px; }
-.journey-static .journey-copy, .journey-static .journey-progress { display: none; }
+.hero-journey {
+  position: relative;
+  height: 260vh;
+}
+.hero-sticky {
+  position: sticky;
+  top: 76px;
+  height: calc(100svh - 76px);
+  min-height: 560px;
+  overflow: hidden;
+}
+.hero-story {
+  position: relative;
+  align-self: stretch;
+}
+.hero-sticky .hero-copy {
+  padding: clamp(32px, 6vh, 70px) 5% 24px 10%;
+}
+.hero-sticky .stage {
+  min-height: 0;
+  height: 100%;
+}
+.hero-sticky .speaker-wrap {
+  animation: none;
+}
+.hero-sticky .speaker {
+  transition: none;
+  will-change: transform;
+}
+.journey-copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
+  pointer-events: none;
+}
+.journey-copy h2 {
+  font-size: clamp(40px, 4.8vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  margin: 30px 0;
+}
+.journey-copy em {
+  font-family: var(--font-editorial);
+  color: var(--accent);
+  font-weight: 400;
+}
+.journey-copy p:not(.eyebrow) {
+  max-width: 390px;
+}
+.journey-rule {
+  width: 54px;
+  height: 1px;
+  background: var(--accent);
+  margin: 32px 0;
+}
+.journey-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--line);
+}
+.journey-progress > div {
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+}
+.journey-static {
+  height: auto;
+}
+.journey-static .hero-sticky {
+  position: relative;
+  top: auto;
+  height: auto;
+}
+.journey-static .stage {
+  min-height: 660px;
+}
+.journey-static .journey-copy,
+.journey-static .journey-progress {
+  display: none;
+}
 @media (max-width: 700px), (max-height: 650px) {
-  .hero-journey { height: auto; }
-  .hero-sticky { position: relative; top: auto; height: auto; min-height: 0; }
-  .hero-sticky .hero-copy { opacity: 1 !important; padding: 42px 7% 35px; }
-  .hero-sticky .stage { height: 470px; min-height: 470px; }
-  .journey-copy, .journey-progress { display: none; }
+  .hero-journey {
+    height: auto;
+  }
+  .hero-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
+  }
+  .hero-sticky .hero-copy {
+    opacity: 1 !important;
+    padding: 42px 7% 35px;
+  }
+  .hero-sticky .stage {
+    height: 470px;
+    min-height: 470px;
+  }
+  .journey-copy,
+  .journey-progress {
+    display: none;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-journey { height: auto; }
-  .hero-sticky { position: relative; top: auto; height: auto; }
-  .hero-sticky .hero-copy { opacity: 1 !important; }
-  .journey-copy, .journey-progress { display: none; }
+  .hero-journey {
+    height: auto;
+  }
+  .hero-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+  }
+  .hero-sticky .hero-copy {
+    opacity: 1 !important;
+  }
+  .journey-copy,
+  .journey-progress {
+    display: none;
+  }
 }
-.hero-sticky .hero-copy:focus-within { opacity: 1 !important; position: relative; z-index: 2; background: var(--paper); }
-.hero-story:has(.hero-copy:focus-within) .journey-copy { visibility: hidden; }
+.hero-sticky .hero-copy:focus-within {
+  opacity: 1 !important;
+  position: relative;
+  z-index: 2;
+  background: var(--paper);
+}
+.hero-story:has(.hero-copy:focus-within) .journey-copy {
+  visibility: hidden;
+}
+
+/* True 3D replaces the old independently transformed CSS faces. */
+.hero-journey {
+  height: 240svh;
+}
+.hero-sticky {
+  top: 94px;
+  height: calc(100svh - 94px);
+}
+.speaker-webgl {
+  position: absolute;
+  inset: 35px 0 94px;
+  z-index: 2;
+}
+.speaker-webgl canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.speaker-fallback {
+  position: absolute;
+  inset: 22% 20%;
+  display: grid;
+  place-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.speaker-fallback .mini-speaker {
+  position: relative;
+  inset: auto;
+}
+.model-views {
+  position: absolute;
+  z-index: 4;
+  top: 64px;
+  left: 35px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+.model-views button {
+  padding: 6px 2px;
+  border-bottom: 1px solid var(--line);
+}
+.hero-sticky .annotation {
+  pointer-events: none;
+}
+.journey-static {
+  height: auto;
+}
+@media (max-width: 700px), (max-height: 650px) {
+  .hero-journey {
+    height: auto;
+  }
+  .hero-sticky {
+    top: auto;
+    height: auto;
+  }
+  .speaker-webgl {
+    inset: 24px 0 70px;
+  }
+  .model-views {
+    top: 54px;
+    left: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-journey {
+    height: auto;
+  }
+  .hero-sticky {
+    top: auto;
+    height: auto;
+  }
+}
+.speaker-webgl[data-status="fallback"] { visibility: hidden; }
+.model-views button { border: 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.model-views button:disabled { opacity: .4; cursor: default; }
+.speaker-fallback .mini-speaker { width: 200px; height: 270px; }
+.speaker-fallback .mini-speaker span { left: 50%; transform: translateX(-50%); }
