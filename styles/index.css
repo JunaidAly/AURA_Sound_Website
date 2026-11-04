@@ -147,3 +147,17 @@
   --font-body: "DM Sans", sans-serif;
   --font-display: "Manrope", sans-serif;
 }
+
+:root,
+[data-finish="sand"] {
+  --model-cloth: #d8c9ad;
+  --model-shell: #b9ad96;
+}
+[data-finish="charcoal"] {
+  --model-cloth: #50534e;
+  --model-shell: #363b39;
+}
+[data-finish="clay"] {
+  --model-cloth: #b66f50;
+  --model-shell: #9c5e45;
+}
