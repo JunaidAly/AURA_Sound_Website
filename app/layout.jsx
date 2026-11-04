@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../styles/index.css";
 export const metadata = {
   icons: { icon: "/icon.svg" },
   metadataBase: new URL("https://aurawebsite-two.vercel.app"),

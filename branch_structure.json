@@ -1,0 +1,15 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "main",
+    "refactor/reusable-ui"
+  ],
+  "parent": {
+    "main": null,
+    "refactor/reusable-ui": "main"
+  },
+  "order": [
+    "main",
+    "refactor/reusable-ui"
+  ]
+}
